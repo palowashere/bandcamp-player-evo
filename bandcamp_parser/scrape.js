@@ -15,21 +15,34 @@ const rndInt = randomIntFromInterval(1, 20)
 const params = {
     evopath: process.argv[2],
     genre: process.argv[3],
-    subgenre: process.argv[4],
+    location: process.argv[4],
     page: rndInt
 }
 
 //get results and store in file
 var fs = require('fs');
-bcfetch.discover(params).then( results => {
 
+/*
+bcfetch.searchTag({q: process.argv[3]}).then( results => {
+    console.log(results);
+});
+*/
+
+
+bcfetch.discover({genre: process.argv[3], location: process.argv[4], page:rndInt}).then( results => {
+    //console.log(results);
     var json = JSON.stringify(results);
+    //console.log(results);
+    results.items.forEach(element => {
+        //console.log(element.location);
+    });
     fs.writeFile(params["evopath"]+"/bandcamp_parser/albums.json", json, function(err) {
         if (err) {
             console.log(err);
         }
     });
 });
+
 
 bcfetch.cache.clear('constant');
 

@@ -24,7 +24,10 @@ class Tag(object):
             results["params"]["subgenre"]
         except:
             results["params"]["subgenre"] = "no subgenre"
-
+        
+        results["params"]["subgenre"] = self.subgenre
+        results["params"]["genre"] = self.genre
+    
         print(f"picking random album out of {str(len(albumurls))} albums from page {str(results['params']['page'])} in the category {str(results['params']['genre']), str(results['params']['subgenre'])}")
         return albumurls
 
