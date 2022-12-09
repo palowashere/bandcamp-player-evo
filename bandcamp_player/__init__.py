@@ -34,14 +34,13 @@ def true_chaos():
     print("true chaos reigns...")
     [genre] = np.random.choice(tags_all, size=1, replace=False)
     tag_data = Tag(genre, 0)
-    print_info(genre, "anywhere")  
+    print_info(genre, 0)  
     return tag_data
 
 
 def mild_chaos():
-    location = np.random.choice(tags_all)
-    tag_data = Tag(sys.argv[1], location)
-    print_info(sys.argv[1], location) 
+    tag_data = Tag(sys.argv[1], 0)
+    print_info(sys.argv[1], 0) 
     return tag_data
 
 
@@ -53,7 +52,7 @@ def chaotic_good(location):
 
 def print_info(genre, location):
     print("playing ---> " + genre)
-    print("from ------> " + location)
+    print("from ------> " + str(location))
 
 
 def main():
