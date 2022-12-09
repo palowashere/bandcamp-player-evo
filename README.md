@@ -6,7 +6,7 @@ streaming random music from bandcamp by specified genre & location on https://gi
 Usage
 =====
 
-``bandcamp-player-evo ["genre"] ["sub genre"]``
+``bandcamp-player-evo ["genre"] ["location_id"]``
 
 Genres can be found on the bandcamp homepage. Slashes spaces and &'s in the genre name should be replaced by dashes (hip-hop/rap becomes hip-hop-rap r&b/soul becomes r-b-soul, field recordings becomes field-recordings). Location can be found in ``locations.txt``.
 MPV
