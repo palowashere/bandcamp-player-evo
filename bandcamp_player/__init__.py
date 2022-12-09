@@ -21,7 +21,7 @@ def loop():
         # so far this works only for 1 genre and 1 location
         if (len(sys.argv) >= 3):
             tag_data = Tag(sys.argv[1], sys.argv[2]) 
-            print_genres(sys.argv[1], sys.argv[2])
+            print_info(sys.argv[1], sys.argv[2])
 
     while True:
         album_url = tag_data.album_random()
@@ -32,28 +32,28 @@ def loop():
 
 def true_chaos():
     print("true chaos reigns...")
-    [genre, location] = np.random.choice(tags_all, size=2, replace=False)
-    tag_data = Tag(genre, location)
-    print_genres(genre, location)  
+    [genre] = np.random.choice(tags_all, size=1, replace=False)
+    tag_data = Tag(genre, 0)
+    print_info(genre, "anywhere")  
     return tag_data
 
 
 def mild_chaos():
     location = np.random.choice(tags_all)
     tag_data = Tag(sys.argv[1], location)
-    print_genres(sys.argv[1], location) 
+    print_info(sys.argv[1], location) 
     return tag_data
 
 
 def chaotic_good(location):
     tag_data = Tag(sys.argv[1], location)
-    print_genres(sys.argv[1], location) 
+    print_info(sys.argv[1], location) 
     return tag_data
 
 
-def print_genres(genre, location):
-    print("playing --->" + genre)
-    print("from ------>" + location)
+def print_info(genre, location):
+    print("playing ---> " + genre)
+    print("from ------> " + location)
 
 
 def main():
